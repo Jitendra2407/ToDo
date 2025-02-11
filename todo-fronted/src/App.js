@@ -37,7 +37,7 @@ import Logout from "./pages/Logout";
 // Create Todo Context for Global State
 export const TodoContext = createContext();
 
-const socket = io("http://localhost:5000"); // Replace with your actual backend URL
+const socket = io("https://todo-4-kf04.onrender.com"); // Replace with your actual backend URL
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -45,7 +45,7 @@ function App() {
   // Fetch initial todos from backend
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/todos-all")
+      .get("https://todo-4-kf04.onrender.com/api/v1/todos-all")
       .then((res) => setTodos(res.data))
       .catch((err) => console.error("Error fetching todos:", err));
   }, []);
