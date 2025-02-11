@@ -1,67 +1,158 @@
-<!-- social media connecting shield -->
+# MERN Stack TODO Application
 
-[![Facebook][facebook-shield]][facebook-url]
-[![Instagram][instagram-shield]][instagram-url]
-[![Twitter][twitter-shield]][twitter-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-[![Github][github-shield]][github-url]
+A real-time To-Do application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack with `socket.io` for real-time updates.
 
-![App ScreenShot](https://raw.githubusercontent.com/SamiurRahmanMukul/Complete-MERN-TODO-Application/master/app_screenshot_v1.png)
+## Features
 
-# Complete MERN Stack Todo Application
+- Add, update, and delete to-do items.
+- Real-time synchronization across multiple clients using `socket.io`.
+- User authentication using JWT.
+- RESTful API architecture.
+- MongoDB as the database.
 
-Hello 👋, I'm Samiur Rahman Mukul. At this repository i will be build a `Complete MERN Stack TODO Application ☋`. Using `Node.js, Express.js, MongoDB, React.js, Redux.js & Tailwind CSS`. So are you interested at this project let's connect with me. Thanks
+---
 
-<!-- ahead of main parts -->
+## Tech Stack
 
-### 👨‍💻 Development with MERN Stack Todo Application
+### Frontend:
+- React.js
+- Axios for API calls
+- Socket.io-client for real-time communication
 
-- `Backend` - Node.js, Express.js & MongoDB database
-- `Frontend` - React.js, Redux.js, & Tailwind CSS
+### Backend:
+- Node.js with Express.js
+- MongoDB with Mongoose
+- Socket.io for real-time updates
+- JWT authentication
 
-<!-- project directory & live preview link -->
+---
 
-### 🖱️Browse App & API Routes Live URL
+## Project Setup
 
-|  #  | Projects                                                                                                   | Live Preview                                             |
-| :-: | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| 01  | [Todo App](https://github.com/SamiurRahmanMukul/Complete-MERN-TODO-Application/tree/master/todo-fronted)   | [Click Here ↗](https://mukul-todo-app.netlify.app)       |
-| 02  | [API Routes](https://github.com/SamiurRahmanMukul/Complete-MERN-TODO-Application/tree/master/todo-backend) | [Click Here ↗](https://mukul-todo-app-new.herokuapp.com) |
+### Prerequisites
+Ensure you have the following installed:
+- Node.js (>= 14.x)
+- MongoDB (Local or Cloud)
+- npm or yarn
 
-<!-- live api documentation -->
-
-### 👉 Live API Routes Documentations
-
+### 1. Clone the Repository
 ```sh
-|--------------------------------------------------------------------------------------------------------|
-| METHOD:    URL:                                        // DESCRIPTION                                  |
-|--------------------------------------------------------------------------------------------------------|
-| GET:      https://mukul-todo-app-new.herokuapp.com/                        // defaults welcome routes  |
-| GET:      https://mukul-todo-app-new.herokuapp.com/api/v1/todos-all        // get all todos            |
-| GET:      https://mukul-todo-app-new.herokuapp.com/api/v1/todo/:id         // get a single todo        |
-| POST:     https://mukul-todo-app-new.herokuapp.com/api/v1/todo/new         // create a new todo        |
-| POST:     https://mukul-todo-app-new.herokuapp.com/api/v1/todos-many       // create many todos        |
-| PUT:      https://mukul-todo-app-new.herokuapp.com/api/v1/todo/:id         // update a todo            |
-| DELETE:   https://mukul-todo-app-new.herokuapp.com/api/v1/todo/:id         // delete a todo            |
-|--------------------------------------------------------------------------------------------------------|
+git clone https://github.com/your-repo/todo-app.git
+cd todo-app
 ```
 
-<!-- my social media links -->
+### 2. Backend Setup
+```sh
+cd todo-backend
+```
 
-[facebook-url]: https://www.faceook.com/SamiurRahmanMukul
-[instagram-url]: https://www.instagram.com/samiur_rahman_mukul
-[twitter-url]: https://www.twitter.com/SamiurRahMukul
-[linkedin-url]: https://www.linkedin.com/in/SamiurRahmanMukul
-[github-url]: https://www.github.com/SamiurRahmanMukul
+#### Install Dependencies
+```sh
+npm install express serve-favicon mongoose dotenv cors
+```
 
-<!-- shield icon links -->
+#### Configure Environment Variables
+Create a `.env` file in the `todo-backend` directory and add the following:
+```env
+# APP ENVIRONMENT VARIABLES
+APP_NAME=ToDo
+APP_PORT=5000
+APP_BASE_URL=http://localhost:5000
+APP_API_PREFIX=/api/v1
 
-[facebook-shield]: https://img.shields.io/badge/-Facebook-black.svg?style=flat-square&logo=facebook&color=555&logoColor=white
-[instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&color=555&logoColor=white
-[twitter-shield]: https://img.shields.io/badge/-Twitter-black.svg?style=flat-square&logo=twitter&color=555&logoColor=white
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[github-shield]: https://img.shields.io/badge/-Github-black.svg?style=flat-square&logo=github&color=555&logoColor=white
+# DB ENVIRONMENT VARIABLES
+MONGO_URI=<your_mongo_uri>
+JWT_SECRET_KEY=<your_jwt_secret>
+```
 
-<p align="center">
-  <strong> HAPPY PROGRAMMING 😀 & I LOVE PROGRAMMING 💖 </strong>
-</p>
+#### Run the Backend Server
+```sh
+nodemon app.js
+```
+
+By default, the backend runs on `http://localhost:5000`.
+
+### 3. Frontend Setup
+```sh
+cd ../todo-frontend
+```
+
+#### Install Dependencies
+```sh
+npm install
+```
+
+#### Configure Environment Variables
+Create a `.env` file in `todo-frontend` and add the following:
+```env
+REACT_APP_API_BASE_URL=http://localhost:5000
+```
+
+#### Run the Frontend Server
+```sh
+npm start
+```
+
+By default, the frontend runs on `http://localhost:3000`.
+
+---
+
+## API Documentation
+
+```sh
+|---------------------------------------------------------------------------------|
+| METHOD:  URL:                                        // DESCRIPTION             |
+|---------------------------------------------------------------------------------|
+| GET:     http://localhost:5000/                      // defaults welcome routes |
+| GET:     http://localhost:5000/api/v1/todos-all      // get all todos           |
+| GET:     http://localhost:5000/api/v1/todo/:id       // get a single todo       |
+| POST:    http://localhost:5000/api/v1/todo/new       // create a new todo       |
+| POST:    http://localhost:5000/api/v1/todos-many     // create many todos       |
+| PUT:     http://localhost:5000/api/v1/todo/:id       // update a todo           |
+| DELETE:  http://localhost:5000/api/v1/todo/:id       // delete a todo           |
+|---------------------------------------------------------------------------------|
+```
+
+---
+
+## VS-Code Extensions
+
+Install the below extensions:
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+## Linting Setup
+
+To lint and format your code automatically according to the Airbnb style guide, follow these steps:
+
+### Install Dev Dependencies
+
+```sh
+npm install -D eslint prettier
+npx install-peerdeps --dev eslint-config-airbnb-base
+npm install -D eslint-config-prettier eslint-plugin-prettier
+```
+
+---
+
+## WebSocket Events (Socket.io)
+
+### Events Sent by Server:
+- `todo:created` - When a new to-do is created
+- `todo:updated` - When a to-do is updated
+- `todo:deleted` - When a to-do is deleted
+
+### Events Sent by Client:
+- `todo:create` - Create a new to-do
+- `todo:update` - Update an existing to-do
+- `todo:delete` - Delete a to-do
+
+---
+
+## License
+This project is licensed under the MIT License.
+
+## Author
+Jitendra Kumar Thakur
+
