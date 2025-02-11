@@ -39,26 +39,26 @@ const HomePage = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Header/Nav */}
       <div className="bg-white shadow-md py-4 px-6 flex justify-between items-center w-full">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-800">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
           Todo App
         </h1>
         <Link
-          to="/logout" // Navigate to Logout component
-          className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-200"
+          to="/logout"
+          className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600 transition duration-200 text-sm sm:text-base"
         >
           Logout
         </Link>
       </div>
 
       {/* Main Content */}
-      <div className="flex w-full px-4 sm:px-8 py-8 space-x-8">
-        {/* Left side: Add New Todo Form */}
-        <div className="w-full sm:w-1/2 bg-white p-8 rounded-lg shadow-xl">
+      <div className="flex flex-col sm:flex-row w-full px-4 sm:px-8 py-6 sm:py-8 space-y-6 sm:space-y-0 sm:space-x-8">
+        {/* Add New Todo Form */}
+        <div className="w-full sm:w-1/2 bg-white p-6 sm:p-8 rounded-lg shadow-lg">
           <AddNewTodoForm />
         </div>
 
-        {/* Right side: Todos List */}
-        <div className="w-full sm:w-1/2 bg-white p-8 rounded-lg shadow-xl">
+        {/* Todos List */}
+        <div className="w-full sm:w-1/2 bg-white p-6 sm:p-8 rounded-lg shadow-lg">
           <TodosList />
         </div>
       </div>
